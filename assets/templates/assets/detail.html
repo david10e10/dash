@@ -1,0 +1,10 @@
+<h1>{{ portfolio.name }} </h1>
+
+<ul>
+  {% for asset in portfolio.asset_set.all %}
+  <li>
+    {{ asset.name }} || {{ asset.asset_type }} 
+  </li>
+  {% endfor %}
+</ul>
+

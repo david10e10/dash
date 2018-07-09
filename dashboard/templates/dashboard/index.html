@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Portfolio Management</title>
+
+<!--  Load js and css stuff -->
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/ionic.css' %}" />
+<link rel="stylesheet" href="{% static 'css/app.css' %}" />
+<link rel="stylesheet" href="{% static 'lib/xcharts.css' %}" />
+
+</head>
+
+<body>
+	<div id="left-nav">
+		<div class="welcome">Welcome, {{ name }}!</div>
+		<div class="title">Menu</div>
+		<ul class="list">
+			<li class="list-item"><a class="item-content"
+				href="#dashboard"> <i class="ion-stats-bars"></i>
+					<h3>Dashboard</h3>
+						<p>Allocation Dashboard</p>
+					</a></li>
+			<li class="list-item"><a class="item-content"
+				href="#stocks"> <i class="ion-briefcase"></i>
+					<h3>Stock Selector</h3>
+					<p>Select Preferred Stocks</p>
+			</a></li>
+		</ul>
+	</div>
+	<div id="container" class="transition">
+		<header class="bar bar-header nav-bar bar-stable">
+			<button id="btn-menu" class="button button-icon"
+				style="font-size: 22px;">
+				<i class="ion-navicon-round"></i>
+			</button>
+			<h1 class="title">Portfolio Management Dashboard</h1>
+		</header>
+		<div id="content"></div>
+		
+		<!-- <div id="content2">
+			<iframe width="900" height="800" frameborder="0" scrolling="no" src="//plot.ly/~DavidFB/7.embed"></iframe>
+		</div>-->
+	</div>
+
+	
+	<!-- Js for constructing charts go here -->
+	<script src="{% static 'lib/d3.v3.min.js' %}"></script>
+	<script src="{% static 'lib/jquery.js'%}"></script>
+	<script src="{% static 'lib/fastclick.js'%}"></script>
+	<script src="{% static 'lib/xcharts.js'%}"></script>
+	<script src="{% static 'lib/tv.js'%}"></script> <!-- For the ticking chart -->
+	
+	<!-- Own Files -->
+    <!-- Data files -->
+    <script src="{% static 'data/assetPrice.js' %}"></script>
+    <script src="{% static 'data/piecharts.js' %}"></script>
+    <script src="{% static 'data/backtestedreturns.js' %}"></script>
+    
+    <!-- Charts -->
+	<script src="{% static 'summary.js' %}"></script>
+	<script src="{% static 'js/dashboard.js' %}"></script>
+	
+	<!-- <script src="{% static 'js/stocks.js' %}"></script> -->
+	
+	
+	<script src="{% static 'js/app.js' %}"></script>
+</body>
+</html>
